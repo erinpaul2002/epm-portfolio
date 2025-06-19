@@ -1,0 +1,124 @@
+/* Certification styles moved from globals.css */
+.certificationsList {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.certificationsList ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.certificationItem {
+  display: flex;
+  align-items: center;
+  background: none;
+  border-radius: 8px;
+  box-shadow: none;
+  padding: 0 0 0 0;
+  margin-bottom: 0;
+  border-left: none;
+  border-bottom: 1px solid var(--jet);
+  position: relative;
+  min-height: 44px;
+  transition: background 0.2s;
+}
+
+.certificationItem:last-child {
+  border-bottom: none;
+}
+
+.certificationTitle {
+  color: var(--orange-yellow-crayola);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-500);
+  margin-bottom: 0;
+  margin-right: 12px;
+  white-space: nowrap;
+}
+
+.certificationOrg {
+  color: var(--light-gray-70);
+  font-size: var(--fs-7);
+  margin-bottom: 0;
+  margin-right: 12px;
+  white-space: nowrap;
+}
+
+.certificationItem a {
+  display: inline-block;
+  color: var(--vegas-gold);
+  background: var(--onyx);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: var(--fs-8);
+  font-weight: var(--fw-400);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.certificationItem a:hover,
+.certificationItem a:focus {
+  background: var(--orange-yellow-crayola);
+  color: var(--smoky-black);
+}
+
+.videoPopup {
+  display: block;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.videoPopupContent {
+  background: var(--eerie-black-1, #181818);
+  z-index: 1001;
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  height: 80%;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 24px 80px hsla(0, 0%, 0%, 0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  color: var(--orange-yellow-crayola, #ffd166);
+  cursor: pointer;
+  z-index: 1002;
+  background: none;
+  border: none;
+  outline: none;
+  transition: color 0.2s;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+  color: var(--vegas-gold, #c9b037);
+}
+
+@media (min-width: 580px) {
+  .certificationItem {
+    /* Add any responsive styles here if needed */
+  }
+  .certificationTitle {
+    /* Add any responsive styles here if needed */
+  }
+}

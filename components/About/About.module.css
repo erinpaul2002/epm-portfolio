@@ -1,0 +1,176 @@
+.about {
+  background: var(--bg-gradient-onyx);
+  border: 1px solid var(--jet);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: var(--shadow-5);
+  position: relative;
+  z-index: 1;
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.aboutText {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.aboutText p {
+  margin-bottom: 15px;
+}
+
+/* Service section */
+.service {
+  margin-bottom: 35px;
+}
+
+.serviceTitle {
+  margin-bottom: 20px;
+}
+
+.serviceList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .serviceList {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 25px;
+  }
+}
+
+.serviceItem {
+  position: relative;
+  background: var(--border-gradient-onyx);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-2);
+  z-index: 1;
+}
+
+.serviceItem::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+@media (min-width: 580px) {
+  .serviceItem {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 30px;
+  }
+}
+
+.serviceIconBox {
+  margin-bottom: 10px;
+}
+
+@media (min-width: 580px) {
+  .serviceIconBox {
+    margin-bottom: 0;
+    margin-top: 5px;
+  }
+}
+
+.serviceIconBox img {
+  margin: auto;
+}
+
+.serviceContentBox {
+  text-align: center;
+}
+
+@media (min-width: 580px) {
+  .serviceContentBox {
+    text-align: left;
+  }
+}
+
+.serviceItemText {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+}
+
+/* Tech stack section */
+.tech {
+  margin-bottom: 15px;
+}
+
+.carouselContainer {
+  position: relative;
+  overflow: hidden;
+  margin: 0 -15px;
+  padding: 25px 0;
+}
+
+.techList {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 15px;
+  padding: 0 25px;
+  overflow: visible;
+}
+
+.techItem {
+  min-width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  overflow: visible;
+  height: 100px;
+  position: relative;
+}
+
+.techItem img {
+  width: 75px;
+  height: 75px;
+  transition: all 0.5s ease;
+}
+
+.techItem:hover img {
+  transform: scale(1.2);
+  filter: grayscale(0);
+}
+
+.techLabel {
+  display: none;
+  color: var(--vegas-gold);
+  background: var(--bg-gradient-onyx);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 8px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.techItem:hover .techLabel,
+.techItem:focus-within .techLabel {
+  display: block;
+}
