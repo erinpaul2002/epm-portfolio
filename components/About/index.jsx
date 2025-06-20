@@ -52,9 +52,9 @@ const techStack = [
 
 const About = () => {
   return (
-    <article className={`${styles.about} active`} data-page="about">
+    <article className={styles.about} data-page="about">
       <header>
-        <h2 className="h2 article-title">About me</h2>
+        <h2 className={styles.articleTitle}>About me</h2>
       </header>
       <section className={styles.aboutText}>
         {aboutText.map((text, idx) => (
@@ -62,7 +62,7 @@ const About = () => {
         ))}
       </section>
       <section className={styles.service}>
-        <h3 className="h3 service-title">What i'm doing</h3>
+        <h3 className={styles.sectionTitle}>What i'm doing</h3>
         <ul className={styles.serviceList}>
           {services.map((service, idx) => (
             <li className={styles.serviceItem} key={idx}>
@@ -70,7 +70,7 @@ const About = () => {
                 <img src={service.icon} alt={service.title} width="40" />
               </div>
               <div className={styles.serviceContentBox}>
-                <h4 className="h4 service-item-title">{service.title}</h4>
+                <h4 className={styles.serviceTitle}>{service.title}</h4>
                 <p className={styles.serviceItemText}>{service.text}</p>
               </div>
             </li>
@@ -78,7 +78,7 @@ const About = () => {
         </ul>
       </section>
       <section id="techstack" className={styles.tech}>
-        <h3 className="h3 tech-title">TechStacks</h3>
+        <h3 className={styles.sectionTitle}>TechStacks</h3>
         <div className={styles.carouselContainer}>
           <motion.div
             style={{ 

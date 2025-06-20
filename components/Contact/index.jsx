@@ -12,27 +12,23 @@ const Contact = () => {
       setFormValid(formRef.current.checkValidity());
     }
   };
-
   return (
-    <article className={"content-card"} data-page="contact">
+    <article className={styles.contact} data-page="contact">
       <header>
-        <h2 className="h2 article-title">Contact</h2>
+        <h2 className={styles.articleTitle}>Contact</h2>
       </header>
-      <section className={styles['contact-form']}>
-        <h3 className={"h3 " + styles['form-title']}>Contact Form</h3>
-        <form
+      <section className={styles.contactForm}>
+        <h3 className={styles.formTitle}>Contact Form</h3>        <form
           action="https://api.web3forms.com/submit"
-          className="form"
           method="POST"
           data-form
           ref={formRef}
-        >
-          <input type="hidden" name="access_key" value="8a3e8ca8-ebc9-4ba0-9402-1c4663aff83f" />
-          <div className={styles['input-wrapper']}>
+        >          <input type="hidden" name="access_key" value="47d7fe62-30c5-4c1c-9bc2-dc7a7c51aa70" />
+          <div className={styles.inputWrapper}>
             <input
               type="text"
               name="name"
-              className={styles['form-input']}
+              className={styles.formInput}
               placeholder="Full name"
               required
               data-form-input
@@ -41,7 +37,7 @@ const Contact = () => {
             <input
               type="email"
               name="email"
-              className={styles['form-input']}
+              className={styles.formInput}
               placeholder="Email address"
               required
               data-form-input
@@ -50,7 +46,7 @@ const Contact = () => {
           </div>
           <textarea
             name="message"
-            className={styles['form-input']}
+            className={styles.formInput}
             placeholder="Your Message"
             required
             data-form-input
@@ -58,7 +54,7 @@ const Contact = () => {
           ></textarea>
           <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
           <button
-            className={styles['form-btn']}
+            className={styles.formBtn}
             type="submit"
             data-form-btn
             disabled={!formValid}

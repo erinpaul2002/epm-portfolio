@@ -6,6 +6,8 @@
   box-shadow: var(--shadow-5);
   position: relative;
   z-index: 1;
+  display: block;
+  animation: fade 0.5s ease forwards;
 }
 
 .about::before {
@@ -32,10 +34,6 @@
 /* Service section */
 .service {
   margin-bottom: 35px;
-}
-
-.serviceTitle {
-  margin-bottom: 20px;
 }
 
 .serviceList {
@@ -173,4 +171,36 @@
 .techItem:hover .techLabel,
 .techItem:focus-within .techLabel {
   display: block;
+}
+
+.articleTitle {
+  color: var(--white-2);
+  font-size: var(--fs-1);
+  line-height: 1.3;
+  position: relative;
+  padding-bottom: 7px;
+  margin-bottom: 10px;
+}
+
+.articleTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 3px;
+  background: var(--accent-color);
+  border-radius: 3px;
+}
+
+.sectionTitle {
+  color: var(--white-2);
+  font-size: var(--fs-2);
+  margin-bottom: 20px;
+}
+
+.serviceTitle {
+  color: var(--white-2);
+  font-size: var(--fs-4);
+  margin-bottom: 7px;
 }

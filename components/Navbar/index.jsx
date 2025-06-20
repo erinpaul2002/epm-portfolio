@@ -1,56 +1,53 @@
 import React from 'react';
+import styles from './Navbar.module.css';
 
 
-const Navbar = ({ activePage, onNavClick }) => {
-  return (
-    <nav className="navbar">
-      <ul className="navbar-list">
-        <li className="navbar-item">
+const Navbar = ({ activePage, onNavClick }) => {  return (
+    <nav className={styles.navbar} data-page="navbar">
+      <ul className={styles.navbarList}><li className={styles.navbarItem}>
           <button 
-            className={`navbar-link ${activePage === 'about' ? 'active' : ''}`} 
+            className={`${styles.navbarLink} ${activePage === 'about' ? styles.active : ''}`} 
             data-nav-link
             onClick={() => onNavClick('about')}
           >
             About
           </button>
         </li>
-        <li className="navbar-item">
+        <li className={styles.navbarItem}>
           <button 
-            className={`navbar-link ${activePage === 'resume' ? 'active' : ''}`} 
+            className={`${styles.navbarLink} ${activePage === 'resume' ? styles.active : ''}`} 
             data-nav-link
             onClick={() => onNavClick('resume')}
           >
             Resume
           </button>
         </li>
-        <li className="navbar-item">
+        <li className={styles.navbarItem}>
           <button 
-            className={`navbar-link ${activePage === 'portfolio' ? 'active' : ''}`} 
+            className={`${styles.navbarLink} ${activePage === 'portfolio' ? styles.active : ''}`} 
             data-nav-link
             onClick={() => onNavClick('portfolio')}
           >
             Portfolio
           </button>
         </li>
-        <li className="navbar-item">
+        <li className={styles.navbarItem}>
           <button 
-            className={`navbar-link ${activePage === 'certifications' ? 'active' : ''}`} 
+            className={`${styles.navbarLink} ${activePage === 'certifications' ? styles.active : ''}`} 
             data-nav-link
-            onClick={() => onNavClick('certifications')}
-          >
+            onClick={() => onNavClick('certifications')}          >
             Certifications
           </button>
         </li>
-        <li className="navbar-item">
+        <li className={styles.navbarItem}>
           <button 
-            className={`navbar-link ${activePage === 'contact' ? 'active' : ''}`} 
+            className={`${styles.navbarLink} ${activePage === 'contact' ? styles.active : ''}`} 
             data-nav-link
             onClick={() => onNavClick('contact')}
           >
             Contact
           </button>
-        </li>
-      </ul>
+        </li></ul>
     </nav>
   );
 };

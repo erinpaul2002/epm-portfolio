@@ -35,17 +35,14 @@ const certifications = [
   },
 ];
 
-// Define proper prop types
 const Certifications = ({ onViewCertificate }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentPdf, setCurrentPdf] = useState('');
 
   const openModal = (pdf) => {
-    // If onViewCertificate prop is provided, use it
     if (onViewCertificate) {
       onViewCertificate(pdf);
     } else {
-      // Otherwise use local state for backwards compatibility
       setCurrentPdf(pdf);
       setModalOpen(true);
     }
@@ -56,7 +53,6 @@ const Certifications = ({ onViewCertificate }) => {
     setCurrentPdf('');
   };
 
-  // Close modal when clicking outside content
   useEffect(() => {
     const handleOutsideClick = (event) => {
       const modal = document.getElementById('certificateModal');
@@ -64,65 +60,39 @@ const Certifications = ({ onViewCertificate }) => {
         closeModal();
       }
     };
-
     window.addEventListener('click', handleOutsideClick);
-    
     return () => {
       window.removeEventListener('click', handleOutsideClick);
     };
   }, []);
-
   return (
-    <article className="content-card certifications" data-page="certifications">
+    <article className={styles.certifications} data-page="certifications">
       <header>
-        <h2 className="h2 article-title">Certifications</h2>
+        <h2 className={styles.articleTitle}>Certifications</h2>
       </header>
 
-      <section className={styles.certificationsList}>
-        <ul>
-          {certifications.map((cert, idx) => (
-            <li className={styles.certificationItem} key={idx}>
-              <h3 className={styles.certificationTitle}>{cert.title}</h3>
-              <p className={styles.certificationOrg}>{cert.org}</p>
-              <a 
-                href="#" 
-                className="view-certificate-btn" 
-                data-pdf={cert.pdf}
-                onClick={(e) => {
-                  e.preventDefault();
-                  openModal(cert.pdf);
-                }}
-              >
-                View Certificate
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      {/* Only render local modal if not using the parent's modal */}
+      <section className={styles.certificationsGrid}>
+        {certifications.map((cert, idx) => (
+          <div className={styles.certificationCard} key={idx}>            <h3 className={styles.certificationTitle}>{cert.title}</h3>
+            <p className={styles.certificationOrg}>{cert.org}</p>
+            <a 
+              href="#" 
+              className={styles.viewCertificateBtn}
+              data-pdf={cert.pdf}
+              onClick={(e) => {
+                e.preventDefault();
+                openModal(cert.pdf);
+              }}
+            >
+              View Certificate
+            </a>
+          </div>
+        ))}
+      </section>      {/* Only render local modal if not using the parent's modal */}
       {!onViewCertificate && modalOpen && (
-        <div id="certificateModal" className="video-popup" style={{ 
-          display: 'block', 
-          zIndex: 9999, 
-          position: 'fixed', 
-          top: 0, 
-          left: 0, 
-          width: '100%', 
-          height: '100%',
-          backgroundColor: 'rgba(0, 0, 0, 0.8)'
-        }}>
-          <div className="video-popup-content" style={{ 
-            background: 'var(--eerie-black-1)', 
-            zIndex: 10000,
-            position: 'relative',
-            width: '80%',
-            maxWidth: '800px',
-            height: '80%',
-            margin: '5% auto',
-            padding: '20px'
-          }}>
-            <span className="close-btn" id="closeCertificateModal" onClick={closeModal}>&times;</span>
+        <div id="certificateModal" className={styles.videoPopup}>
+          <div className={styles.videoPopupContent}>
+            <span className={styles.closeBtn} id="closeCertificateModal" onClick={closeModal}>&times;</span>
             <iframe
               id="certificateIframe"
               src={currentPdf}

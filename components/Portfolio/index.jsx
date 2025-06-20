@@ -70,11 +70,10 @@ const Portfolio = () => {
     
     if (videoIframeRef.current && videoPopupRef.current) {
       videoIframeRef.current.src = embedUrl;
-      videoPopupRef.current.style.display = 'block';
-      setIsModalOpen(true);
+      videoPopupRef.current.style.display = 'block';      setIsModalOpen(true);
       
       // Hide navbar when modal opens
-      const navbar = document.querySelector('.navbar');
+      const navbar = document.querySelector('[data-page="navbar"]');
       if (navbar) {
         navbar.style.display = 'none';
       }
@@ -88,7 +87,7 @@ const Portfolio = () => {
       setIsModalOpen(false);
       
       // Show navbar when modal closes
-      const navbar = document.querySelector('.navbar');
+      const navbar = document.querySelector('[data-page="navbar"]');
       if (navbar) {
         navbar.style.display = 'flex';
       }
@@ -122,37 +121,33 @@ const Portfolio = () => {
       window.removeEventListener('keydown', handleEscKey);
     };
   }, [isModalOpen]);
-
   return (
     <article className={styles.portfolio} data-page="portfolio">
       <header>
-        <h2 className="h2 article-title">Portfolio</h2>
+        <h2 className={styles.articleTitle}>Portfolio</h2>
       </header>
 
-      <section className="projects">
-        <ul className={styles.filterList}>
-          {filters.map((filter, index) => (
+      <section className={styles.projects}>
+        <ul className={styles.filterList}>          {filters.map((filter, index) => (
             <li key={index} className={styles.filterItem}>
               <button 
-                className={selectedFilter === filter.value ? "active" : ""} 
+                className={selectedFilter === filter.value ? styles.active : ""} 
                 onClick={() => handleFilterClick(filter.value)}
               >
                 {filter.label}
               </button>
             </li>
           ))}
-        </ul>
-
-        <div 
-          className={`${styles.filterSelectBox} ${selectOpen ? "active" : ""}`}
+        </ul>        <div 
+          className={`${styles.filterSelectBox} ${selectOpen ? styles.active : ""}`}
           onClick={handleSelectClick}
         >
           <button className={styles.filterSelect}>
-            <div className="select-value">
+            <div className={styles.selectValue}>
               {filters.find(f => f.value === selectedFilter)?.label || "Select category"}
             </div>
 
-            <div className="select-icon">
+            <div className={styles.selectIcon}>
               <ion-icon name="chevron-down"></ion-icon>
             </div>
           </button>

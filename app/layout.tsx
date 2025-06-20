@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import ThemeProvider from "@/components/ThemeProvider";
+import ThemeWrapper from "@/components/ThemeWrapper";
 
 const poppins = Poppins({
   weight: ['300', '400', '500', '600'],
@@ -25,8 +27,12 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={`${poppins.variable} antialiased`} style={{ background: "hsl(0, 0%, 7%)" }}>
-        {children}
+      <body className={`${poppins.variable} antialiased`}>
+        <ThemeProvider>
+          <ThemeWrapper>
+            {children}
+          </ThemeWrapper>
+        </ThemeProvider>
       </body>
     </html>
   );

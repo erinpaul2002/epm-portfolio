@@ -9,7 +9,8 @@ import Resume from '../components/Resume';
 import Portfolio from '../components/Portfolio';
 import Certifications from '../components/Certifications';
 import Contact from '../components/Contact';
-import styles from '../components/Certifications/Certifications.module.css';
+import certStyles from '../components/Certifications/Certifications.module.css';
+import styles from './page.module.css';
 
 // Dynamically import ionicons
 const IonIcons = dynamic(
@@ -221,32 +222,32 @@ export default function Home() {
         <Navbar activePage={activePage} onNavClick={handleNavClick} />
 
         {/* Pages */}
-        <div className={`about ${activePage === 'about' ? 'active' : ''}`} data-page="about">
+        <div className={`${styles.pageSection} ${activePage === 'about' ? styles.active : ''}`} data-page="about">
           <About />
         </div>
 
-        <div className={`resume ${activePage === 'resume' ? 'active' : ''}`} data-page="resume">
+        <div className={`${styles.pageSection} ${activePage === 'resume' ? styles.active : ''}`} data-page="resume">
           <Resume />
         </div>
 
-        <div className={`portfolio ${activePage === 'portfolio' ? 'active' : ''}`} data-page="portfolio">
+        <div className={`${styles.pageSection} ${activePage === 'portfolio' ? styles.active : ''}`} data-page="portfolio">
           <Portfolio />
         </div>
 
-        <div className={`certifications ${activePage === 'certifications' ? 'active' : ''}`} data-page="certifications">
+        <div className={`${styles.pageSection} ${activePage === 'certifications' ? styles.active : ''}`} data-page="certifications">
           <Certifications onViewCertificate={handleCertificateView} />
         </div>
 
-        <div className={`contact ${activePage === 'contact' ? 'active' : ''}`} data-page="contact">
+        <div className={`${styles.pageSection} ${activePage === 'contact' ? styles.active : ''}`} data-page="contact">
           <Contact />
         </div>
       </div>
 
       {/* Certificate Modal */}
       {certificateModalOpen && (
-        <div id="certificateModal" className={styles.videoPopup}>
-          <div className={styles.videoPopupContent}>
-            <span className={styles.closeBtn} onClick={handleCloseModal}>&times;</span>
+        <div id="certificateModal" className={certStyles.videoPopup}>
+          <div className={certStyles.videoPopupContent}>
+            <span className={certStyles.closeBtn} onClick={handleCloseModal}>&times;</span>
             <iframe 
               id="certificateIframe" 
               src={certificateSrc}

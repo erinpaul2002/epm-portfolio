@@ -17,6 +17,27 @@
   z-index: -1;
 }
 
+.articleTitle {
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 7px;
+  color: var(--white-2);
+  text-transform: capitalize;
+  font-size: var(--fs-1); /* Add h2 font size */
+  font-weight: var(--fw-600); /* Add h2 font weight */
+}
+
+.articleTitle::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 3px;
+  background: var(--text-gradient-yellow);
+  border-radius: 3px;
+}
+
 .filterList {
   display: none;
 }
@@ -42,7 +63,8 @@
   color: var(--light-gray-70);
 }
 
-.filterItem button.active {
+.filterItem button.active,
+.active {
   color: var(--orange-yellow-crayola);
 }
 
@@ -104,7 +126,7 @@
 }
 
 .selectItem button:hover {
-  background: hsl(240, 2%, 20%);
+  background: var(--dark-gray);
 }
 
 .projectList {
@@ -164,7 +186,7 @@
 .projectItemIconBox {
   --scale: 0.8;
   background: var(--jet);
-  color: var(--orange-yellow-crayola);
+  color: var(--accent-color); /* Use theme variable instead of hard-coded color */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -178,7 +200,7 @@
 }
 
 .projectImg:hover::before {
-  background: hsla(0, 0%, 0%, 0.5);
+  background: var(--transparent-black-50);
 }
 
 .projectImg:hover .projectItemIconBox {
@@ -202,10 +224,9 @@
   position: fixed;
   z-index: 1000;
   left: 0;
-  top: 0;
-  width: 100%;
+  top: 0;  width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--transparent-black-80);
 }
 
 .videoPopupContent {
@@ -213,26 +234,38 @@
   top: 5%;
   left: 5%;
   width: 90vw;
-  height: 90vh;
-  margin: auto;
+  height: 90vh;  margin: auto;
   padding: 20px;
-  background: #000000;
+  background: var(--pure-black);
   border-radius: 8px;
 }
 
 .closeBtn {
-  position: absolute;
-  top: 10px;
+  position: absolute;  top: 10px;
   right: 20px;
   font-size: 50px;
-  color: #bd0c0c;
+  color: var(--red);
   cursor: pointer;
 }
 
+.projects {
+  margin-bottom: 30px;
+}
+
+.selectValue {
+  font-size: var(--fs-6);
+  color: var(--light-gray);
+}
+
+.selectIcon {
+  font-size: 20px;
+  color: var(--orange-yellow-crayola);
+}
+
 .portfolio .projectTitle {
-  color: var(--orange-yellow-crayola) !important;
+  color: var(--orange-yellow-crayola); 
 }
 
 .projectCategory {
-  color: var(--white-2) !important;
+  color: var(--white-2);
 }
