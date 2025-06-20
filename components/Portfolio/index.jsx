@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './Portfolio.module.css';
+import { li } from 'framer-motion/client';
 
 const filters = [
   { label: 'All', value: 'all' },
@@ -27,7 +28,25 @@ const projects = [
     image: './assets/images/project-youtube.png',
     videoSrc: 'https://www.youtube.com/watch?v=s2UEkhpNOcA',
   },
-];
+  {
+    title: 'Shot-DevSpace',
+    category: 'nextjs',
+    image: './assets/images/project-shot-devspace.png',
+    liveUrl: 'https://shot-devspace.netlify.app/',
+  },
+  {
+    title: 'CodeX Editor',
+    category: 'react',
+    image: './assets/images/project-codeX.png',
+    liveUrl: 'https://codex-frontend-drab.vercel.app/',
+  },
+  {
+    title: 'Figma to Website',
+    category: 'nextjs',
+    image: './assets/images/project-figma-to-website.png',
+    liveUrl: 'https://webbywolf-fe-app.vercel.app/',
+  },
+  ];
 
 const Portfolio = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
@@ -169,13 +188,32 @@ const Portfolio = () => {
               key={index} 
               className={`${styles.projectItem} ${selectedFilter === 'all' || selectedFilter === project.category ? styles.active : ''}`}
             >
-              <a href="#" onClick={(e) => e.preventDefault()}>
+              {/* Replace the anchor tag with a div */}
+              <div className={styles.projectWrapper}>
                 <figure className={styles.projectImg}>
-                  <div 
-                    className={styles.projectItemIconBox} 
-                    onClick={() => openVideoPopup(project.videoSrc)}
-                  >
-                    <ion-icon name="eye-outline"></ion-icon>
+                  <div className={styles.projectIconContainer}>
+                    {project.videoSrc && (
+                      <div 
+                        className={styles.projectItemIconBox} 
+                        onClick={() => openVideoPopup(project.videoSrc)}
+                        title="Watch Demo"
+                      >
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </div>
+                    )}
+                    
+                    {project.liveUrl && (
+                      <a 
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.projectItemLiveLink}
+                        title="Visit Live Site"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <ion-icon name="globe-outline"></ion-icon>
+                      </a>
+                    )}
                   </div>
                   <img 
                     src={project.image} 
@@ -185,7 +223,7 @@ const Portfolio = () => {
                 </figure>
                 <h3 className={styles.projectTitle}>{project.title}</h3>
                 <p className={styles.projectCategory}>{project.category}</p>
-              </a>
+              </div>
             </li>
           ))}
         </ul>

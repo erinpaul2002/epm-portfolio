@@ -183,27 +183,52 @@
   transition: var(--transition-1);
 }
 
-.projectItemIconBox {
-  --scale: 0.8;
-  background: var(--jet);
-  color: var(--accent-color); /* Use theme variable instead of hard-coded color */
+.projectIconContainer {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(var(--scale));
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.projectItemIconBox {
+  --scale: 0.8;
+  background: var(--jet);
+  color: var(--accent-color);
+  position: relative;
   font-size: 20px;
   padding: 18px;
   border-radius: 12px;
   opacity: 0;
-  z-index: 1;
+  transform: scale(var(--scale));
   transition: var(--transition-1);
+  cursor: pointer;
+}
+
+.projectItemLiveLink {
+  --scale: 0.8;
+  background: var(--jet);
+  color: var(--orange-yellow-crayola);
+  position: relative;
+  font-size: 20px;
+  padding: 18px;
+  border-radius: 12px;
+  opacity: 0;
+  transform: scale(var(--scale));
+  transition: var(--transition-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .projectImg:hover::before {
   background: var(--transparent-black-50);
 }
 
-.projectImg:hover .projectItemIconBox {
+.projectImg:hover .projectItemIconBox,
+.projectImg:hover .projectItemLiveLink {
   --scale: 1;
   opacity: 1;
 }
@@ -268,4 +293,9 @@
 
 .projectCategory {
   color: var(--white-2);
+}
+
+.projectWrapper {
+  cursor: pointer;
+  display: block;
 }
