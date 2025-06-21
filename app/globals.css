@@ -222,6 +222,219 @@
     --card-border: var(--border-gradient-onyx);
 }
 
+/* Plum Theme */
+.theme-plum {
+    /* gradient */
+    --bg-gradient-onyx: linear-gradient(
+      to bottom right, 
+      hsl(240, 21%, 15%) 3%, 
+      hsl(280, 36%, 26%) 97%
+    );
+    --bg-gradient-jet: linear-gradient(
+      to bottom right, 
+      hsla(240, 21%, 15%, 0.251) 0%, 
+      hsla(280, 36%, 26%, 0) 100%
+    ), hsl(240, 21%, 15%);
+    --bg-gradient-yellow-1: linear-gradient(
+      to bottom right, 
+      hsl(317, 35%, 45%) 0%, 
+      hsla(317, 35%, 45%, 0) 50%
+    );
+    --bg-gradient-yellow-2: linear-gradient(
+      135deg, 
+      hsla(317, 35%, 45%, 0.251) 0%, 
+      hsla(317, 35%, 45%, 0) 59.86%
+    ), hsl(240, 21%, 15%);
+    --border-gradient-onyx: linear-gradient(
+      to bottom right, 
+      hsl(280, 36%, 30%) 0%, 
+      hsla(280, 36%, 30%, 0) 50%
+    );
+    --text-gradient-yellow: linear-gradient(
+      to right, 
+      hsl(317, 35%, 45%), 
+      hsl(290, 30%, 40%)
+    );
+
+    /* solid */
+    --jet: hsl(280, 36%, 26%);
+    --onyx: hsl(240, 21%, 22%);
+    --onyx-75: hsla(240, 21%, 22%, 0.75);
+    --eerie-black-1: hsl(240, 21%, 15%);
+    --eerie-black-2: hsl(240, 21%, 13%);
+    --smoky-black: hsl(240, 21%, 11%);
+    --white-1: hsl(0, 0%, 100%);
+    --white-2: hsl(0, 0%, 93%);
+    --orange-yellow-crayola: hsl(317, 35%, 45%);
+    --vegas-gold: hsl(317, 25%, 35%);
+    --light-gray: hsl(0, 0%, 84%);
+    --light-gray-70: hsla(0, 0%, 84%, 0.7);
+    --bittersweet-shimmer: hsl(340, 60%, 55%);
+    
+    /* additional colors */
+    --transparent-black-50: hsla(0, 0%, 0%, 0.5);
+    --transparent-black-80: rgba(0, 0, 0, 0.8);
+    --pure-black: #000000;
+    --red: #9E4B8A;
+    --dark-gray: hsl(280, 36%, 20%);
+    --transparent-black-10: rgba(0, 0, 0, 0.1);
+    --transparent-black-18: rgba(0, 0, 0, 0.18);
+    --darker-gray: #1E1E2F;
+
+    /* theme colors */
+    --primary-bg-color: var(--smoky-black);
+    --secondary-bg-color: var(--eerie-black-1);
+    --accent-color: var(--orange-yellow-crayola);
+    --text-color: var(--white-2);
+    --heading-color: var(--white-1);
+    --border-color: var(--jet);
+    --card-bg: var(--bg-gradient-jet);
+    --card-border: var(--border-gradient-onyx);
+}
+
+/* Emerald Theme */
+.theme-emerald {
+    /* gradient */
+    --bg-gradient-onyx: linear-gradient(
+      to bottom right, 
+      hsl(196, 100%, 11%) 3%, 
+      hsl(170, 66%, 24%) 97%
+    );
+    --bg-gradient-jet: linear-gradient(
+      to bottom right, 
+      hsla(196, 100%, 11%, 0.251) 0%, 
+      hsla(170, 66%, 24%, 0) 100%
+    ), hsl(196, 100%, 11%);
+    --bg-gradient-yellow-1: linear-gradient(
+      to bottom right, 
+      hsl(165, 100%, 83%) 0%, 
+      hsla(165, 100%, 83%, 0) 50%
+    );
+    --bg-gradient-yellow-2: linear-gradient(
+      135deg, 
+      hsla(165, 100%, 83%, 0.251) 0%, 
+      hsla(165, 100%, 83%, 0) 59.86%
+    ), hsl(196, 100%, 11%);
+    --border-gradient-onyx: linear-gradient(
+      to bottom right, 
+      hsl(170, 66%, 24%) 0%, 
+      hsla(170, 66%, 24%, 0) 50%
+    );
+    --text-gradient-yellow: linear-gradient(
+      to right, 
+      hsl(165, 100%, 83%), 
+      hsl(160, 100%, 75%)
+    );
+
+    /* solid */
+    --jet: hsl(170, 66%, 24%);
+    --onyx: hsl(196, 100%, 13%);
+    --onyx-75: hsla(196, 100%, 13%, 0.75);
+    --eerie-black-1: hsl(196, 100%, 11%);
+    --eerie-black-2: hsl(196, 100%, 9%);
+    --smoky-black: hsl(196, 100%, 7%);
+    --white-1: hsl(0, 0%, 100%);
+    --white-2: hsl(0, 0%, 93%);
+    --orange-yellow-crayola: hsl(165, 100%, 83%);
+    --vegas-gold: hsl(165, 65%, 65%);
+    --light-gray: hsl(0, 0%, 84%);
+    --light-gray-70: hsla(0, 0%, 84%, 0.7);
+    --bittersweet-shimmer: hsl(180, 100%, 45%);
+    
+    /* additional colors */
+    --transparent-black-50: hsla(0, 0%, 0%, 0.5);
+    --transparent-black-80: rgba(0, 0, 0, 0.8);
+    --pure-black: #000000;
+    --red: #14655B;
+    --dark-gray: hsl(170, 66%, 18%);
+    --transparent-black-10: rgba(0, 0, 0, 0.1);
+    --transparent-black-18: rgba(0, 0, 0, 0.18);
+    --darker-gray: #002B36;
+
+    /* theme colors */
+    --primary-bg-color: var(--smoky-black);
+    --secondary-bg-color: var(--eerie-black-1);
+    --accent-color: var(--orange-yellow-crayola);
+    --text-color: var(--white-2);
+    --heading-color: var(--white-1);
+    --border-color: var(--jet);
+    --card-bg: var(--bg-gradient-jet);
+    --card-border: var(--border-gradient-onyx);
+}
+
+/* Cocoa Theme */
+.theme-cocoa {
+    /* gradient */
+    --bg-gradient-onyx: linear-gradient(
+      to bottom right, 
+      hsl(0, 12%, 21%) 3%, 
+      hsl(26, 26%, 39%) 97%
+    );
+    --bg-gradient-jet: linear-gradient(
+      to bottom right, 
+      hsla(0, 12%, 21%, 0.251) 0%, 
+      hsla(26, 26%, 39%, 0) 100%
+    ), hsl(0, 12%, 21%);
+    --bg-gradient-yellow-1: linear-gradient(
+      to bottom right, 
+      hsl(35, 70%, 83%) 0%, 
+      hsla(35, 70%, 83%, 0) 50%
+    );
+    --bg-gradient-yellow-2: linear-gradient(
+      135deg, 
+      hsla(35, 70%, 83%, 0.251) 0%, 
+      hsla(35, 70%, 83%, 0) 59.86%
+    ), hsl(0, 12%, 21%);
+    --border-gradient-onyx: linear-gradient(
+      to bottom right, 
+      hsl(26, 26%, 39%) 0%, 
+      hsla(26, 26%, 39%, 0) 50%
+    );
+    --text-gradient-yellow: linear-gradient(
+      to right, 
+      hsl(35, 70%, 83%), 
+      hsl(30, 65%, 75%)
+    );
+
+    /* solid */
+    --jet: hsl(26, 26%, 39%);
+    --onyx: hsl(0, 12%, 23%);
+    --onyx-75: hsla(0, 12%, 23%, 0.75);
+    --eerie-black-1: hsl(0, 12%, 21%);
+    --eerie-black-2: hsl(0, 12%, 19%);
+    --smoky-black: hsl(0, 12%, 15%);
+    --white-1: hsl(0, 0%, 100%);
+    --white-2: hsl(0, 0%, 93%);
+    --orange-yellow-crayola: hsl(35, 70%, 83%);
+    --vegas-gold: hsl(35, 45%, 65%);
+    --light-gray: hsl(0, 0%, 84%);
+    --light-gray-70: hsla(0, 0%, 84%, 0.7);
+    --bittersweet-shimmer: hsl(15, 80%, 50%);
+    
+    /* additional colors */
+    --transparent-black-50: hsla(0, 0%, 0%, 0.5);
+    --transparent-black-80: rgba(0, 0, 0, 0.8);
+    --pure-black: #000000;
+    --red: #7E5C4A;
+    --dark-gray: hsl(26, 26%, 30%);
+    --transparent-black-10: rgba(0, 0, 0, 0.1);
+    --transparent-black-18: rgba(0, 0, 0, 0.18);
+    --darker-gray: #3B2F2F;
+
+    /* theme colors */
+    --primary-bg-color: var(--smoky-black);
+    --secondary-bg-color: var(--eerie-black-1);
+    --accent-color: var(--orange-yellow-crayola);
+    --text-color: var(--white-2);
+    --heading-color: var(--white-1);
+    --border-color: var(--jet);
+    --card-bg: var(--bg-gradient-jet);
+    --card-border: var(--border-gradient-onyx);
+}
+
+
+
+
 /* Set default theme */
 :root {
     /* typography */

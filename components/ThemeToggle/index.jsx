@@ -16,6 +16,12 @@ const ThemeToggle = () => {
         return <ion-icon name="sunny-outline"></ion-icon>;
       case THEMES.BLUE:
         return <ion-icon name="water-outline"></ion-icon>;
+      case THEMES.PLUM:
+        return <ion-icon name="flower-outline"></ion-icon>;
+      case THEMES.EMERALD:
+        return <ion-icon name="leaf-outline"></ion-icon>;
+      case THEMES.COCOA:
+        return <ion-icon name="cafe-outline"></ion-icon>;
       default:
         return <ion-icon name="color-palette-outline"></ion-icon>;
     }

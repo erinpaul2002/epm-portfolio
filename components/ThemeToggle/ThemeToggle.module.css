@@ -55,6 +55,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    top: 20px; /* Adjusted for smaller screens */
+    right: 50px; /* Moved more to the left (larger right value) */
   }
 }
 

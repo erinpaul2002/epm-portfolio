@@ -9,7 +9,10 @@ const ThemeContext = createContext();
 export const THEMES = {
   DARK: 'theme-dark',
   LIGHT: 'theme-light',
-  BLUE: 'theme-blue'
+  BLUE: 'theme-blue',
+  PLUM: 'theme-plum',
+  EMERALD: 'theme-emerald',
+  COCOA: 'theme-cocoa',
 };
 
 export const ThemeProvider = ({ children }) => {
@@ -44,6 +47,7 @@ export const ThemeProvider = ({ children }) => {
     // Save to localStorage
     localStorage.setItem('epm-theme', theme);
   }, [theme, mounted]);
+  
   // Function to toggle between themes
   const toggleTheme = () => {
     setTheme(currentTheme => {
@@ -53,12 +57,19 @@ export const ThemeProvider = ({ children }) => {
         case THEMES.LIGHT:
           return THEMES.BLUE;
         case THEMES.BLUE:
+          return THEMES.PLUM;
+        case THEMES.PLUM:
+          return THEMES.EMERALD;
+        case THEMES.EMERALD:
+          return THEMES.COCOA;
+        case THEMES.COCOA:
           return THEMES.DARK;
         default:
           return THEMES.DARK;
       }
     });
   };
+  
   // Get the current theme name for display
   const getThemeName = () => {
     switch (theme) {
@@ -68,6 +79,12 @@ export const ThemeProvider = ({ children }) => {
         return 'Light';
       case THEMES.BLUE:
         return 'Blue';
+      case THEMES.PLUM:
+        return 'Plum';
+      case THEMES.EMERALD:
+        return 'Emerald';
+      case THEMES.COCOA:
+        return 'Cocoa';
       default:
         return 'Dark';
     }
