@@ -22,6 +22,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <script data-goatcounter="https://eldragox.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
       <head>
         <link rel="shortcut icon" href="/assets/images/logo.ico" type="image/x-icon" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
