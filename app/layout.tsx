@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import Script from "next/script"; // ✅ import Script
 import "./globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
 import ThemeWrapper from "@/components/ThemeWrapper";
@@ -22,8 +23,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <script data-goatcounter="https://eldragox.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
       <head>
         <link rel="shortcut icon" href="/assets/images/logo.ico" type="image/x-icon" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,6 +34,13 @@ export default function RootLayout({
             {children}
           </ThemeWrapper>
         </ThemeProvider>
+
+        {/* ✅ GoatCounter script placed properly */}
+        <Script
+          data-goatcounter="https://eldragox.goatcounter.com/count"
+          src="https://gc.zgo.at/count.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
