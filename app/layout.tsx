@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import Script from "next/script"; // ✅ import Script
+import Script from "next/script"; 
 import "./globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
 import ThemeWrapper from "@/components/ThemeWrapper";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const poppins = Poppins({
   weight: ['300', '400', '500', '600'],

@@ -46,6 +46,20 @@ const projects = [
     image: './assets/images/project-figma-to-website.png',
     liveUrl: 'https://webbywolf-fe-app.vercel.app/',
   },
+  {
+    title: 'Task Manager',
+    category: 'React',
+    image: './assets/images/project-task-manager.png',
+    liveUrl: 'https://task-manager-fe-three.vercel.app/',
+  },
+  {
+    title: 'Room Finder',
+    category: 'Next',
+    image: './assets/images/project-room-finder.png',
+    liveUrl: 'https://upsc-room-hunt-fe.vercel.app/',
+  },
+
+
   ];
 
 const Portfolio = () => {
