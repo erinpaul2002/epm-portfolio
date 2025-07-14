@@ -43,6 +43,9 @@ export default function RootLayout({
           src="https://gc.zgo.at/count.js"
           strategy="afterInteractive"
         />
+        {/* ✅ Vercel Analytics and Speed Insights */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
