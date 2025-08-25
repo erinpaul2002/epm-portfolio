@@ -4,63 +4,96 @@ import { li } from 'framer-motion/client';
 
 const filters = [
   { label: 'All', value: 'all' },
+  { label: 'Work', value: 'work' },
+  { label: 'Personal', value: 'personal' },
   { label: 'Python', value: 'python' },
   { label: 'React', value: 'react' },
   { label: 'Nextjs', value: 'nextjs' },
 ];
 
 const projects = [
+  // Personal Projects
   {
     title: 'SnapSync',
     category: 'nextjs',
+    type: 'personal',
     image: './assets/images/project-snapsync.png',
     videoSrc: 'https://www.youtube.com/watch?v=Khfs-lmJxl0',
   },
   {
     title: 'CryptoX',
     category: 'react',
+    type: 'personal',
     image: './assets/images/project-crypto.jpg',
     videoSrc: 'https://www.youtube.com/watch?v=dk7PLIf-CNs',
   },
   {
     title: 'YouTube Transcriber',
     category: 'python',
+    type: 'personal',
     image: './assets/images/project-youtube.png',
     videoSrc: 'https://www.youtube.com/watch?v=s2UEkhpNOcA',
   },
   {
     title: 'Shot-DevSpace',
     category: 'nextjs',
+    type: 'work',
     image: './assets/images/project-shot-devspace.png',
     liveUrl: 'https://shot-devspace.netlify.app/',
   },
   {
     title: 'CodeX Editor',
     category: 'react',
+    type: 'personal',
     image: './assets/images/project-codeX.png',
     liveUrl: 'https://codex-frontend-drab.vercel.app/',
   },
   {
     title: 'Figma to Website',
     category: 'nextjs',
+    type: 'personal',
     image: './assets/images/project-figma-to-website.png',
     liveUrl: 'https://webbywolf-fe-app.vercel.app/',
   },
   {
     title: 'Task Manager',
-    category: 'React',
+    category: 'react',
+    type: 'personal',
     image: './assets/images/project-task-manager.png',
     liveUrl: 'https://task-manager-fe-three.vercel.app/',
   },
   {
     title: 'Room Finder',
-    category: 'Next',
+    category: 'nextjs',
+    type: 'work',
     image: './assets/images/project-room-finder.png',
     liveUrl: 'https://upsc-room-hunt-fe.vercel.app/',
   },
+  {
+    title: 'Shot-Prep',
+    category: 'nextjs',
+    type: 'work',
+    image: './assets/images/project-prep.png',
+    liveUrl: 'https://prep.metashot.co.in/',
+  }
+  ,
+  {
+    title: 'RAG-Agent',
+    category: 'nextjs',
+    type: 'personal',
+    image: './assets/images/project-rag-agent.png',
+    liveUrl: 'https://ai-rag-agent-fe.vercel.app/',
+  }
+,
+  {
+    title: 'In-A-Minute',
+    category: 'nextjs',
+    type: 'personal',
+    image: './assets/images/project-notes-summarizer.png',
+    liveUrl: 'https://mangodesk-in-a-minute-fe.vercel.app/',
+  }
 
-
-  ];
+];
 
 const Portfolio = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
@@ -71,13 +104,15 @@ const Portfolio = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Filter function
-  const filterProjects = (category) => {
-    if (category === 'all') {
+  const filterProjects = (filter) => {
+    if (filter === 'all') {
       setFilteredProjects(projects);
+    } else if (filter === 'work' || filter === 'personal') {
+      setFilteredProjects(projects.filter(project => project.type === filter));
     } else {
-      setFilteredProjects(projects.filter(project => project.category === category));
+      setFilteredProjects(projects.filter(project => project.category.toLowerCase() === filter.toLowerCase()));
     }
-    setSelectedFilter(category);
+    setSelectedFilter(filter);
   };
 
   // Filter button click handler
@@ -197,12 +232,11 @@ const Portfolio = () => {
         </div>
 
         <ul className={styles.projectList}>
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <li 
               key={index} 
-              className={`${styles.projectItem} ${selectedFilter === 'all' || selectedFilter === project.category ? styles.active : ''}`}
+              className={`${styles.projectItem} ${selectedFilter === 'all' || selectedFilter === project.category || selectedFilter === project.type ? styles.active : ''}`}
             >
-              {/* Replace the anchor tag with a div */}
               <div className={styles.projectWrapper}>
                 <figure className={styles.projectImg}>
                   <div className={styles.projectIconContainer}>
@@ -215,7 +249,6 @@ const Portfolio = () => {
                         <ion-icon name="eye-outline"></ion-icon>
                       </div>
                     )}
-                    
                     {project.liveUrl && (
                       <a 
                         href={project.liveUrl}
@@ -234,6 +267,10 @@ const Portfolio = () => {
                     alt={project.title} 
                     loading="lazy" 
                   />
+                  {/* Work badge */}
+                  {project.type === 'work' && (
+                    <span style={{position: 'absolute', top: 8, left: 8, background: '#0070f3', color: '#fff', padding: '2px 8px', borderRadius: 4, fontSize: 12, zIndex: 2}}>Work</span>
+                  )}
                 </figure>
                 <h3 className={styles.projectTitle}>{project.title}</h3>
                 <p className={styles.projectCategory}>{project.category}</p>
