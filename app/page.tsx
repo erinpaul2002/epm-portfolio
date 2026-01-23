@@ -22,6 +22,8 @@ export default function Home() {
   const [activePage, setActivePage] = useState('about');
   const [certificateModalOpen, setCertificateModalOpen] = useState(false);
   const [certificateSrc, setCertificateSrc] = useState('');
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
+  const [videoSrc, setVideoSrc] = useState('');
 
   // Handle navigation
   const handleNavClick = (page: string) => {
@@ -38,6 +40,20 @@ export default function Home() {
   const handleCloseModal = () => {
     setCertificateModalOpen(false);
     setCertificateSrc('');
+  };
+
+  // Handle opening video modal
+  const handleOpenVideo = (url: string) => {
+    const videoId = url.split('v=')[1];
+    const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+    setVideoSrc(embedUrl);
+    setVideoModalOpen(true);
+  };
+
+  // Handle closing video modal
+  const handleCloseVideoModal = () => {
+    setVideoModalOpen(false);
+    setVideoSrc('');
   };
 
   // Initialize tech carousel on component mount
@@ -231,7 +247,7 @@ export default function Home() {
         </div>
 
         <div className={`${styles.pageSection} ${activePage === 'portfolio' ? styles.active : ''}`} data-page="portfolio">
-          <Portfolio />
+          <Portfolio onOpenVideo={handleOpenVideo} />
         </div>
 
         <div className={`${styles.pageSection} ${activePage === 'certifications' ? styles.active : ''}`} data-page="certifications">
@@ -255,6 +271,23 @@ export default function Home() {
               height="90%" 
               frameBorder="0"
               title="Certificate Viewer"
+            ></iframe>
+          </div>
+        </div>
+      )}
+
+      {/* Video Modal */}
+      {videoModalOpen && (
+        <div id="videoPopup" className={certStyles.videoPopup}>
+          <div className={certStyles.videoPopupContent}>
+            <span className={certStyles.closeBtn} onClick={handleCloseVideoModal}>&times;</span>
+            <iframe 
+              src={videoSrc}
+              width="100%" 
+              height="90%" 
+              frameBorder="0" 
+              allowFullScreen
+              title="Video Modal"
             ></iframe>
           </div>
         </div>

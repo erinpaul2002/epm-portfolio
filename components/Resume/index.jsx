@@ -46,7 +46,7 @@ const Resume = () => {
         <ol className={styles.timelineList}>
           <li className={styles.timelineItem}>
             <h4 className={styles.timelineItemTitle}>Full Stack Intern, Metashot, Bengaluru, India</h4>
-            <span>Jan 2025 – Present</span>
+            <span>Jan 2025 – April 2025</span>
             <div className={styles.timelineText}>
               <ul className={styles.workExperienceList}>
                 <li>Engineered high-performance APIs, reducing response times by 45% through caching and optimized data flow.</li>

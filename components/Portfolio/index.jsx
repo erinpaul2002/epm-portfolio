@@ -95,13 +95,10 @@ const projects = [
 
 ];
 
-const Portfolio = () => {
+const Portfolio = ({ onOpenVideo }) => {
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [selectOpen, setSelectOpen] = useState(false);
   const [filteredProjects, setFilteredProjects] = useState(projects);
-  const videoPopupRef = useRef(null);
-  const videoIframeRef = useRef(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Filter function
   const filterProjects = (filter) => {
@@ -131,64 +128,10 @@ const Portfolio = () => {
     setSelectOpen(false);
   };
 
-  // Video popup handlers
+  // Video popup handler - delegate to parent
   const openVideoPopup = (videoSrc) => {
-    const videoId = videoSrc.split('v=')[1];
-    const embedUrl = `https://www.youtube.com/embed/${videoId}`;
-    
-    if (videoIframeRef.current && videoPopupRef.current) {
-      videoIframeRef.current.src = embedUrl;
-      videoPopupRef.current.style.display = 'block';      setIsModalOpen(true);
-      
-      // Hide navbar when modal opens
-      const navbar = document.querySelector('[data-page="navbar"]');
-      if (navbar) {
-        navbar.style.display = 'none';
-      }
-    }
+    onOpenVideo(videoSrc);
   };
-
-  const closeVideoPopup = () => {
-    if (videoPopupRef.current && videoIframeRef.current) {
-      videoIframeRef.current.src = '';
-      videoPopupRef.current.style.display = 'none';
-      setIsModalOpen(false);
-      
-      // Show navbar when modal closes
-      const navbar = document.querySelector('[data-page="navbar"]');
-      if (navbar) {
-        navbar.style.display = 'flex';
-      }
-    }
-  };
-
-  // Close popup when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (videoPopupRef.current && event.target === videoPopupRef.current) {
-        closeVideoPopup();
-      }
-    };
-
-    window.addEventListener('click', handleClickOutside);
-    return () => {
-      window.removeEventListener('click', handleClickOutside);
-    };
-  }, []);
-
-  // Close popup when ESC key is pressed
-  useEffect(() => {
-    const handleEscKey = (event) => {
-      if (event.key === 'Escape' && isModalOpen) {
-        closeVideoPopup();
-      }
-    };
-
-    window.addEventListener('keydown', handleEscKey);
-    return () => {
-      window.removeEventListener('keydown', handleEscKey);
-    };
-  }, [isModalOpen]);
   return (
     <article className={styles.portfolio} data-page="portfolio">
       <header>
@@ -278,20 +221,6 @@ const Portfolio = () => {
             </li>
           ))}
         </ul>
-
-        {/* Video Popup */}
-        <div id="videoPopup" ref={videoPopupRef} className={styles.videoPopup} style={{ zIndex: 1000, position: 'fixed', top: 0, left: 0, width: '100%', height: '100%' }}>
-          <div className={styles.videoPopupContent} style={{ zIndex: 1001 }}>
-            <span className={styles.closeBtn} onClick={closeVideoPopup}>&times;</span>
-            <iframe 
-              ref={videoIframeRef}
-              width="90%" 
-              height="100%" 
-              frameBorder="0" 
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
       </section>
     </article>
   );
