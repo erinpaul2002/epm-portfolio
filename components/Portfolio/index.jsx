@@ -34,6 +34,36 @@ const projects = [
     image: './assets/images/project-youtube.png',
     videoSrc: 'https://www.youtube.com/watch?v=s2UEkhpNOcA',
   },
+    {
+    title: 'Xtilliant',
+    category: 'nextjs',
+    type: 'personal',
+    image: './assets/images/project-xtilliant.png',
+    liveUrl: 'https://xtilliant.vercel.app/',
+  },
+    {
+    title: 'Room Finder',
+    category: 'nextjs',
+    type: 'work',
+    image: './assets/images/project-room-finder.png',
+    liveUrl: 'https://upsc-room-hunt-fe.vercel.app/',
+  },
+    {
+    title: 'In-A-Minute',
+    category: 'nextjs',
+    type: 'personal',
+    image: './assets/images/project-notes-summarizer.png',
+    liveUrl: 'https://mangodesk-in-a-minute-fe.vercel.app/',
+  },
+  {
+    title: 'Shot-Prep',
+    category: 'nextjs',
+    type: 'work',
+    image: './assets/images/project-prep.png',
+    liveUrl: 'https://prep.metashot.co.in/',
+  }
+  ,
+
   {
     title: 'Shot-DevSpace',
     category: 'nextjs',
@@ -63,35 +93,14 @@ const projects = [
     liveUrl: 'https://task-manager-fe-three.vercel.app/',
   },
   {
-    title: 'Room Finder',
-    category: 'nextjs',
-    type: 'work',
-    image: './assets/images/project-room-finder.png',
-    liveUrl: 'https://upsc-room-hunt-fe.vercel.app/',
-  },
-  {
-    title: 'Shot-Prep',
-    category: 'nextjs',
-    type: 'work',
-    image: './assets/images/project-prep.png',
-    liveUrl: 'https://prep.metashot.co.in/',
-  }
-  ,
-  {
     title: 'RAG-Agent',
     category: 'nextjs',
     type: 'personal',
     image: './assets/images/project-rag-agent.png',
     liveUrl: 'https://ai-rag-agent-fe.vercel.app/',
   }
-,
-  {
-    title: 'In-A-Minute',
-    category: 'nextjs',
-    type: 'personal',
-    image: './assets/images/project-notes-summarizer.png',
-    liveUrl: 'https://mangodesk-in-a-minute-fe.vercel.app/',
-  }
+
+
 
 ];
 
