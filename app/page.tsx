@@ -8,6 +8,7 @@ import About from '../components/About';
 import Resume from '../components/Resume';
 import Portfolio from '../components/Portfolio';
 import Certifications from '../components/Certifications';
+import CertificateViewer from '../components/Certifications/CertificateViewer';
 import Contact from '../components/Contact';
 import certStyles from '../components/Certifications/Certifications.module.css';
 import styles from './page.module.css';
@@ -18,19 +19,10 @@ const IonIcons = dynamic(
   { ssr: false }
 );
 
-// Dynamically import PdfViewer
-const PdfViewer = dynamic(
-  () => import('../components/Certifications/PdfViewer'),
-  { 
-    ssr: false,
-    loading: () => <div style={{ color: 'var(--white-1)', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}><span style={{opacity: 0.7}}>Loading Viewer...</span></div>
-  }
-);
-
 export default function Home() {
   const [activePage, setActivePage] = useState('about');
   const [certificateModalOpen, setCertificateModalOpen] = useState(false);
-  const [certificateSrc, setCertificateSrc] = useState('');
+  const [certificate, setCertificate] = useState<{ image: string; title: string } | null>(null);
   const [videoModalOpen, setVideoModalOpen] = useState(false);
   const [videoSrc, setVideoSrc] = useState('');
 
@@ -40,15 +32,15 @@ export default function Home() {
   };
 
   // Handle opening certificate modal
-  const handleCertificateView = (pdfPath: string) => {
-    setCertificateSrc(pdfPath);
+  const handleCertificateView = (selectedCertificate: { image: string; title: string }) => {
+    setCertificate(selectedCertificate);
     setCertificateModalOpen(true);
   };
 
   // Handle closing certificate modal
   const handleCloseModal = () => {
     setCertificateModalOpen(false);
-    setCertificateSrc('');
+    setCertificate(null);
   };
 
   // Handle opening video modal
@@ -281,7 +273,12 @@ export default function Home() {
               </button>
             </div>
             <div className={certStyles.modalBody}>
-              <PdfViewer file={certificateSrc} />
+              {certificate && (
+                <CertificateViewer
+                  src={certificate.image}
+                  title={certificate.title}
+                />
+              )}
             </div>
           </div>
         </div>

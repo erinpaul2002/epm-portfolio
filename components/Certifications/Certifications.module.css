@@ -100,7 +100,7 @@
   z-index: 3;
 }
 
-/* PDF Preview */
+/* Certificate Preview */
 .cardPreview {
   position: absolute;
   top: 15px;
@@ -113,23 +113,18 @@
   z-index: 1;
 }
 
-.previewIframeWrapper {
+.previewImageWrapper {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 300%;
-  height: 300%;
-  transform: scale(0.333333);
-  transform-origin: top left;
-  pointer-events: none;
+  inset: 0;
 }
 
-.previewIframe {
+.previewImage {
   width: 100%;
   height: 100%;
-  border: none;
+  object-fit: cover;
   pointer-events: none;
   user-select: none;
+  display: block;
 }
 
 .previewOverlay {
@@ -317,26 +312,8 @@
   background: var(--smoky-black);
   position: relative;
   z-index: 1;
-  overflow: hidden;
-}
-
-.modalBody :global(.react-pdf__Document),
-.modalBody :global(.react-pdf__Page) {
-  max-width: 100% !important;
-  max-height: 100% !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  min-width: 0 !important;
-  min-height: 0 !important;
-}
-
-.modalBody :global(.react-pdf__Page__canvas) {
-  max-width: 100% !important;
-  max-height: 100% !important;
-  width: auto !important;
-  height: auto !important;
-  object-fit: contain;
+  overflow: auto;
+  padding: 20px;
 }
 
 .closeBtn {
@@ -384,6 +361,9 @@
     width: 95%;
     height: 80vh;
   }
+  .modalBody {
+    padding: 16px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -406,5 +386,8 @@
   }
   .modalHeader {
     padding: 15px;
+  }
+  .modalBody {
+    padding: 12px;
   }
 }
