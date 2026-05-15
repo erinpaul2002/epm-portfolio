@@ -35,19 +35,31 @@ const techStack = [
   { img: './assets/images/icon-css.png', label: 'CSS' },
   { img: './assets/images/icon-js.png', label: 'JavaScript' },
   { img: './assets/images/icon-react.png', label: 'React' },
-  { img: './assets/images/icon-next.png', label: 'Next.js' },
+  { img: './assets/images/icon-nextjs.png', label: 'Next.js' },
   { img: './assets/images/icon-python.png', label: 'Python' },
-  { img: './assets/images/icon-java.png', label: 'Java' },
-  { img: './assets/images/icon-c.png', label: 'C' },
+  { img: './assets/images/icon-nest.png', label: 'Nest' },
+  { img: './assets/images/icon-nodejs.png', label: 'Node.js' },
+  { img: './assets/images/icon-clerk.png', label: 'Clerk' },
+  { img: './assets/images/icon-firebase.png', label: 'Firebase' },
   { img: './assets/images/icon-supabase.png', label: 'Supabase' },
   { img: './assets/images/icon-sql.png', label: 'SQL' },
-  { img: './assets/images/icon-docker.png', label: 'Docker' },
+  { img: './assets/images/icon-postgresql.png', label: 'PostgreSQL' },
   { img: './assets/images/icon-mongodb.png', label: 'MongoDB' },
+  { img: './assets/images/icon-convexdb.png', label: 'ConvexDB' },
+  { img: './assets/images/icon-docker.png', label: 'Docker' },
   { img: './assets/images/icon-azure.png', label: 'Microsoft Azure' },
   { img: './assets/images/icon-git.png', label: 'Git' },
   { img: './assets/images/icon-github.png', label: 'GitHub' },
   { img: './assets/images/icon-postman.png', label: 'Postman' },
-  { img: './assets/images/icon-cursorai.png', label: 'CursorAI' }
+  { img: './assets/images/icon-cursorai.png', label: 'CursorAI' },
+  { img: './assets/images/icon-claudecode.png', label: 'Claude Code' },
+  { img: './assets/images/icon-codex.png', label: 'Codex' },
+  { img: './assets/images/icon-antigravity.png', label: 'Antigravity' },
+  { img: './assets/images/icon-grafana.png', label: 'Grafana' },
+  { img: './assets/images/icon-sentry.png', label: 'Sentry' },
+  { img: './assets/images/icon-railway.png', label: 'Railway' },
+  { img: './assets/images/icon-render.png', label: 'Render' },
+  { img: './assets/images/icon-flutter.png', label: 'Flutter' }
 ];
 
 const About = () => {
@@ -81,19 +93,18 @@ const About = () => {
         <h3 className={styles.sectionTitle}>TechStacks</h3>
         <div className={styles.carouselContainer}>
           <motion.div
-            style={{ 
-              display: 'flex', 
-              gap: '15px', 
-              width: 'max-content' 
+            style={{
+              display: 'flex',
+              width: 'max-content'
             }}
             animate={{
-              x: [0, -1 * techStack.length * 90],
+              x: [0, "-50%"],
             }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: techStack.length * 2,
+                duration: techStack.length * 1.5,
                 ease: "linear"
               }
             }}

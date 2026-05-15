@@ -4,12 +4,12 @@
 
 .sidebar {
   margin-bottom: 15px;
-  max-height: 112px;
+  max-height: 130px;
   overflow: hidden;
   transition: var(--transition-2);
 }
 
-.sidebar.active { max-height: 405px; }
+.sidebar.active { max-height: 500px; }
 
 .sidebarInfo {
   position: relative;
@@ -21,7 +21,19 @@
 
 .avatarBox {
   background: var(--bg-gradient-onyx);
-  border-radius: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+}
+
+.avatarBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .infoContent .name {
@@ -150,9 +162,12 @@
 
   .sidebar.active { max-height: 584px; }  .sidebarInfo { gap: 25px; }
 
-  .avatarBox { border-radius: 30px; }
+  .avatarBox { 
+    border-radius: 50%; 
+    width: 120px;
+  }
 
-  .avatarBox img { width: 120px; }
+  .avatarBox img { width: 100%; }
 
   .infoContent .name { margin-bottom: 15px; }
 
@@ -197,7 +212,7 @@
   }
   .sidebarInfo { flex-direction: column; }
 
-  .avatarBox img { width: 150px; }
+  .avatarBox { width: 150px; }
 
   .infoContent .name {
     white-space: nowrap;

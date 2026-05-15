@@ -55,14 +55,13 @@ const Sidebar = () => {
 
 	return (
 		<aside
-			className={`content-card ${styles.sidebar}${
-				active ? ` ${styles.active}` : ''
-			}`}
+			className={`content-card ${styles.sidebar}${active ? ` ${styles.active}` : ''
+				}`}
 			data-sidebar
 		>			<div className={styles.sidebarInfo}>
 				<figure className={styles.avatarBox}>
 					<img
-						src="/assets/images/my-avatar.png"
+						src="/assets/images/my-avatar-4.png"
 						alt="Erin Paul Manjaly"
 						width="80"
 					/>

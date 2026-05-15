@@ -6,49 +6,55 @@ const filters = [
   { label: 'All', value: 'all' },
   { label: 'Work', value: 'work' },
   { label: 'Personal', value: 'personal' },
-  { label: 'Python', value: 'python' },
-  { label: 'React', value: 'react' },
-  { label: 'Nextjs', value: 'nextjs' },
+  { label: 'Hackathons', value: 'hackathon' },
 ];
 
 const projects = [
   // Personal Projects
   {
-    title: 'SnapSync',
+    title: 'PDF Translator/Editor',
     category: 'nextjs',
     type: 'personal',
-    image: './assets/images/project-snapsync.png',
-    videoSrc: 'https://www.youtube.com/watch?v=Khfs-lmJxl0',
+    image: './assets/images/project-pdf-translator-editor.png',
+    liveUrl: 'https://epm-pdf-translator.vercel.app/pdf-editor',
   },
   {
-    title: 'CryptoX',
-    category: 'react',
+    title: 'Challenge Tracker',
+    category: 'nextjs',
     type: 'personal',
-    image: './assets/images/project-crypto.jpg',
-    videoSrc: 'https://www.youtube.com/watch?v=dk7PLIf-CNs',
+    image: './assets/images/project-challenge-tracker.png', // Using an existing image as placeholder
+    liveUrl: 'https://epm-challenge-tracker.vercel.app/',
   },
   {
-    title: 'YouTube Transcriber',
-    category: 'python',
-    type: 'personal',
-    image: './assets/images/project-youtube.png',
-    videoSrc: 'https://www.youtube.com/watch?v=s2UEkhpNOcA',
+    title: 'CareOps Hackathon',
+    category: 'Nextjs',
+    type: 'hackathon',
+    image: './assets/images/project-careops.png', // Using an existing image as placeholder
+    liveUrl: 'https://careops-epm.vercel.app/',
+    videoSrc: 'https://www.youtube.com/watch?v=4g97QxVjvnM',
   },
-    {
+  {
+    title: 'FaithConnect Hackathon',
+    category: 'Flutter',
+    type: 'hackathon',
+    image: './assets/images/project-faith-connect.png', // Using an existing image as placeholder
+    videoSrc: 'https://www.youtube.com/watch?v=4nFGk3TbbHU',
+  },
+  {
     title: 'Xtilliant',
     category: 'nextjs',
     type: 'personal',
     image: './assets/images/project-xtilliant.png',
     liveUrl: 'https://xtilliant.vercel.app/',
   },
-    {
+  {
     title: 'Room Finder',
     category: 'nextjs',
     type: 'work',
     image: './assets/images/project-room-finder.png',
     liveUrl: 'https://upsc-room-hunt-fe.vercel.app/',
   },
-    {
+  {
     title: 'In-A-Minute',
     category: 'nextjs',
     type: 'personal',
@@ -61,15 +67,48 @@ const projects = [
     type: 'work',
     image: './assets/images/project-prep.png',
     liveUrl: 'https://prep.metashot.co.in/',
-  }
-  ,
-
+  },
   {
     title: 'Shot-DevSpace',
     category: 'nextjs',
     type: 'work',
     image: './assets/images/project-shot-devspace.png',
     liveUrl: 'https://shot-devspace.netlify.app/',
+  },
+  {
+    title: 'OpenGrad Website',
+    category: 'react',
+    type: 'work',
+    image: './assets/images/project-opengrad.png',
+    liveUrl: 'https://www.opengrad.in/home',
+  },
+  {
+    title: 'OpenGrad Scheduling',
+    category: 'nextjs',
+    type: 'work',
+    image: './assets/images/project-opengrad-scheduling.png',
+    liveUrl: 'https://scheduling.opengrad.in/',
+  },
+  {
+    title: 'OpenGrad TaskManager',
+    category: 'nextjs',
+    type: 'work',
+    image: './assets/images/project-opengrad-taskmanager.png',
+    liveUrl: 'https://opengradfellow.metashot.co.in/',
+  },
+  {
+    title: 'OpenGrad CareerMapping',
+    category: 'nextjs',
+    type: 'work',
+    image: './assets/images/project-opengrad-careermap.png',
+    liveUrl: 'https://careermapping.netlify.app/Interview-OpenGrad-hindi',
+  },
+  {
+    title: 'OpenGrad LMS',
+    category: 'nextjs',
+    type: 'work',
+    image: './assets/images/project-opengrad-lms.png',
+    liveUrl: 'https://opengrad-lms-ui.netlify.app/',
   },
   {
     title: 'CodeX Editor',
@@ -98,10 +137,28 @@ const projects = [
     type: 'personal',
     image: './assets/images/project-rag-agent.png',
     liveUrl: 'https://ai-rag-agent-fe.vercel.app/',
+  },
+  {
+    title: 'SnapSync',
+    category: 'nextjs',
+    type: 'personal',
+    image: './assets/images/project-snapsync.png',
+    videoSrc: 'https://www.youtube.com/watch?v=Khfs-lmJxl0',
+  },
+  {
+    title: 'CryptoX',
+    category: 'react',
+    type: 'personal',
+    image: './assets/images/project-crypto.jpg',
+    videoSrc: 'https://www.youtube.com/watch?v=dk7PLIf-CNs',
+  },
+  {
+    title: 'YouTube Transcriber',
+    category: 'python',
+    type: 'personal',
+    image: './assets/images/project-youtube.png',
+    videoSrc: 'https://www.youtube.com/watch?v=s2UEkhpNOcA',
   }
-
-
-
 ];
 
 const Portfolio = ({ onOpenVideo }) => {
@@ -113,7 +170,7 @@ const Portfolio = ({ onOpenVideo }) => {
   const filterProjects = (filter) => {
     if (filter === 'all') {
       setFilteredProjects(projects);
-    } else if (filter === 'work' || filter === 'personal') {
+    } else if (filter === 'work' || filter === 'personal' || filter === 'hackathon') {
       setFilteredProjects(projects.filter(project => project.type === filter));
     } else {
       setFilteredProjects(projects.filter(project => project.category.toLowerCase() === filter.toLowerCase()));
@@ -149,16 +206,16 @@ const Portfolio = ({ onOpenVideo }) => {
 
       <section className={styles.projects}>
         <ul className={styles.filterList}>          {filters.map((filter, index) => (
-            <li key={index} className={styles.filterItem}>
-              <button 
-                className={selectedFilter === filter.value ? styles.active : ""} 
-                onClick={() => handleFilterClick(filter.value)}
-              >
-                {filter.label}
-              </button>
-            </li>
-          ))}
-        </ul>        <div 
+          <li key={index} className={styles.filterItem}>
+            <button
+              className={selectedFilter === filter.value ? styles.active : ""}
+              onClick={() => handleFilterClick(filter.value)}
+            >
+              {filter.label}
+            </button>
+          </li>
+        ))}
+        </ul>        <div
           className={`${styles.filterSelectBox} ${selectOpen ? styles.active : ""}`}
           onClick={handleSelectClick}
         >
@@ -185,16 +242,16 @@ const Portfolio = ({ onOpenVideo }) => {
 
         <ul className={styles.projectList}>
           {filteredProjects.map((project, index) => (
-            <li 
-              key={index} 
+            <li
+              key={index}
               className={`${styles.projectItem} ${selectedFilter === 'all' || selectedFilter === project.category || selectedFilter === project.type ? styles.active : ''}`}
             >
               <div className={styles.projectWrapper}>
                 <figure className={styles.projectImg}>
                   <div className={styles.projectIconContainer}>
                     {project.videoSrc && (
-                      <div 
-                        className={styles.projectItemIconBox} 
+                      <div
+                        className={styles.projectItemIconBox}
                         onClick={() => openVideoPopup(project.videoSrc)}
                         title="Watch Demo"
                       >
@@ -202,7 +259,7 @@ const Portfolio = ({ onOpenVideo }) => {
                       </div>
                     )}
                     {project.liveUrl && (
-                      <a 
+                      <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -214,14 +271,17 @@ const Portfolio = ({ onOpenVideo }) => {
                       </a>
                     )}
                   </div>
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    loading="lazy" 
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
                   />
                   {/* Work badge */}
                   {project.type === 'work' && (
-                    <span style={{position: 'absolute', top: 8, left: 8, background: '#0070f3', color: '#fff', padding: '2px 8px', borderRadius: 4, fontSize: 12, zIndex: 2}}>Work</span>
+                    <span style={{ position: 'absolute', top: 8, left: 8, background: '#0070f3', color: '#fff', padding: '2px 8px', borderRadius: 4, fontSize: 12, zIndex: 2 }}>Work</span>
+                  )}
+                  {project.type === 'hackathon' && (
+                    <span style={{ position: 'absolute', top: 8, left: 8, background: '#ff9c07', color: '#fff', padding: '2px 8px', borderRadius: 4, fontSize: 12, zIndex: 2 }}>Hackathon</span>
                   )}
                 </figure>
                 <h3 className={styles.projectTitle}>{project.title}</h3>

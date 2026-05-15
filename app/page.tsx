@@ -18,6 +18,15 @@ const IonIcons = dynamic(
   { ssr: false }
 );
 
+// Dynamically import PdfViewer
+const PdfViewer = dynamic(
+  () => import('../components/Certifications/PdfViewer'),
+  { 
+    ssr: false,
+    loading: () => <div style={{ color: 'var(--white-1)', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}><span style={{opacity: 0.7}}>Loading Viewer...</span></div>
+  }
+);
+
 export default function Home() {
   const [activePage, setActivePage] = useState('about');
   const [certificateModalOpen, setCertificateModalOpen] = useState(false);
@@ -263,15 +272,17 @@ export default function Home() {
       {certificateModalOpen && (
         <div id="certificateModal" className={certStyles.videoPopup}>
           <div className={certStyles.videoPopupContent}>
-            <span className={certStyles.closeBtn} onClick={handleCloseModal}>&times;</span>
-            <iframe 
-              id="certificateIframe" 
-              src={certificateSrc}
-              width="100%" 
-              height="90%" 
-              frameBorder="0"
-              title="Certificate Viewer"
-            ></iframe>
+            <div className={certStyles.modalHeader}>
+              <h3 className={certStyles.modalTitle}>Certificate View</h3>
+              <button className={certStyles.closeBtn} onClick={handleCloseModal} aria-label="Close modal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#ff4444" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ width: '18px', height: '18px' }}>
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className={certStyles.modalBody}>
+              <PdfViewer file={certificateSrc} />
+            </div>
           </div>
         </div>
       )}
