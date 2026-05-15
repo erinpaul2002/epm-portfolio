@@ -83,28 +83,28 @@ const Resume = () => {
           <li className={styles.timelineItem}>
             <h4 className={styles.timelineItemTitle}>OpenGrad Hub</h4>
             <p className={styles.timelineText}>
-              OpenGrad Hub is a comprehensive multi-workspace management platform featuring modular tools for LMS, attendance tracking, and scheduling. It implements a robust Permission-Based Access Control (PBAC) system to manage complex user roles and streamline organizational workflows across various educational tracks.
+              OpenGrad Hub is an all-in-one platform for managing students, classes, and schedules. It includes tools for tracking attendance, managing lessons, and setting different access levels for users to keep everything organized.
             </p>
           </li>
 
           <li className={styles.timelineItem}>
             <h4 className={styles.timelineItemTitle}>Challenge Tracker</h4>
             <p className={styles.timelineText}>
-              Challenge Tracker is a streamer-centric engagement platform that allows YouTube and Twitch viewers to submit live challenges to streamers. It features dynamic OBS overlays for real-time stream integration and a moderator dashboard for quick status updates and progress tracking.
+              Challenge Tracker is a tool for streamers on YouTube and Twitch to interact with their viewers. It allows fans to send in live challenges that show up on the screen in real-time, with a simple dashboard for moderators to track progress.
             </p>
           </li>
 
           <li className={styles.timelineItem}>
-            <h4 className={styles.timelineItemTitle}>MBA Prep (One Short Track)</h4>
+            <h4 className={styles.timelineItemTitle}>Shot Prep</h4>
             <p className={styles.timelineText}>
-              MBA Prep (One Short Track) is an AI-powered interview simulation platform specializing in MBA admissions. It features a credit-based system with Razorpay integration, automated post-interview report generation, and realistic AI-driven evaluation to help candidates refine their performance.
+              Shot Prep is an AI-powered mock interview tool for students preparing for MBA admissions or any other course. It helps users practice with realistic AI interviews, pay for sessions easily, and get instant feedback reports to improve their performance.
             </p>
           </li>
 
           <li className={styles.timelineItem}>
             <h4 className={styles.timelineItemTitle}>PDF Translator/Editor</h4>
             <p className={styles.timelineText}>
-              PDF Translator/Editor is an AI-powered platform built with Next.js and integrated with advanced translation APIs. It enables users to upload, translate, and edit PDF documents with high precision, streamlining multilingual document management.
+              PDF Translator/Editor is a simple tool that lets you upload PDFs and translate them into different languages instantly. It also allows you to edit the translated text directly, making it easy to handle documents in multiple languages.
             </p>
           </li>
         </ol>

@@ -2,8 +2,21 @@
 import React from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 
-// Configure the worker for pdfjs. This allows parsing the PDF in a background thread.
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+// Polyfill for Promise.withResolvers — required by pdfjs-dist 4+
+// Missing in older mobile browsers (e.g. iOS < 17, older Android WebViews)
+if (typeof Promise.withResolvers === 'undefined') {
+  Promise.withResolvers = function () {
+    let resolve, reject;
+    const promise = new Promise((res, rej) => {
+      resolve = res;
+      reject = rej;
+    });
+    return { promise, resolve, reject };
+  };
+}
+
+// Configure the worker for pdfjs. Uses explicit https:// to avoid protocol issues on mobile.
+pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 export default function PdfViewer({ file }) {
   return (
